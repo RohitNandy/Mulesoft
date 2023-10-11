@@ -1,0 +1,17 @@
+{
+  "main": "s-employee.raml",
+  "name": "s-employee",
+  "groupId": "b7145ffc-ec2f-4c98-9ee7-4fae626b0cc0",
+  "assetId": "s-employee",
+  "version": "1.0.0",
+  "classifier": "raml",
+  "tags": [],
+  "descriptorVersion": "1.0.0",
+  "dependencies": [
+    {
+      "groupId": "b7145ffc-ec2f-4c98-9ee7-4fae626b0cc0",
+      "assetId": "client-id-auth",
+      "version": "1.0.0"
+    }
+  ]
+}

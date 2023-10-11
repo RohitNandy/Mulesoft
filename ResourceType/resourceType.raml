@@ -1,0 +1,31 @@
+#%RAML 1.0 ResourceType
+    get?:
+      description: <<getDescription>>
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<getInputType>>
+              example: <<getExampleType>>
+                
+    post?:
+      description: <<postDescription>>
+      body:
+            application/json:
+              type: <<postInputType>>
+              example: <<postExampleType>>
+      responses:
+        201:
+          body:
+            application/json:
+              example: <<postResponseExampleType>>
+
+
+    delete?:
+      description: <<deleteDescription>>
+      responses:
+        200:
+          body:
+            application/json:
+              example: <<deleteExampleType>>               
+            

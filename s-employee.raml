@@ -1,0 +1,49 @@
+#%RAML 1.0
+title: s-employee
+version: 1.0.0
+description: A simple API to retrieve information from employee database.
+protocols:
+  - HTTP
+  - HTTPS
+baseUri: www.ramlapiexample.com
+mediaType: 
+- application/json
+
+types:
+  emp: !include DataTypes/employeeDataType.raml
+
+traits:
+  errorResponse: !include Traits/errorResponse.raml
+  client-id-enforcement: !include exchange_modules/b7145ffc-ec2f-4c98-9ee7-4fae626b0cc0/client-id-auth/1.0.0/client-id-auth.raml
+
+resourceTypes:
+  customResourceType: !include ResourceType/resourceType.raml  
+
+#securitySchemes:
+  #customSecurity: !include Security Scheme/securityScheme.raml
+ 
+#securedBy:
+  #- customSecurity  
+
+/employee:
+  is: [client-id-enforcement]
+  
+  get:
+    is: [errorResponse]
+  post:
+  delete:
+    queryParameters:
+      empId:
+        type: number
+        required: true
+  type: 
+    customResourceType: 
+      getDescription: Gets an employee from database
+      getExampleType: !include Example/employeeExample.raml
+      getInputType: !include DataTypes/employeeDataType.raml
+      postDescription: Posts an employee to database
+      postResponseExampleType: !include Example/postResponse.raml
+      postExampleType: !include Example/employeeExample.raml
+      postInputType: !include DataTypes/employeeDataType.raml
+      deleteDescription: Deletes an employee from database
+      deleteExampleType: !include Example/deleteExample.raml
